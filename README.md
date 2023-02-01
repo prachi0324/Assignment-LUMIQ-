@@ -50,15 +50,15 @@ Solution:
 
 import re
 n,m=map(int,input().split())
-l=list()
+matrix=list()
 for i in range(n):
-    l.append(input())
-l=list(zip(*l))
+    matrix.append(input())
+matrix=list(zip(*matrix))
 s='' 
-for i in l:
+for i in matrix:
     s=s+''.join(i)
 s=''
-for i in l:
+for i in matrix:
     s=s+''.join(i)
 s=re.sub(r'^[^a-zA-Z0-9]+$',r' ',s)
 print(s)
@@ -70,7 +70,7 @@ print(s)
 
 
 
-Tile: Regex and Parsing
+Title: Regex and Parsing
 
 A valid postal code  have to fullfil both below requirements:
 
@@ -121,8 +121,8 @@ regex_alternating_repetitive_digit_pair = r"(?<=([0-9]))\d(?=\1)"
 
 
 import re
-P = input("A number from the given range")
+Postal_code = input()
 
-print (bool(re.match(regex_integer_in_range, P)) 
-and len(re.findall(regex_alternating_repetitive_digit_pair, P)) < 2)
+print (bool(re.match(regex_integer_in_range, Postal_code)) 
+and len(re.findall(regex_alternating_repetitive_digit_pair, Ppstal_code)) < 2)
 ```
