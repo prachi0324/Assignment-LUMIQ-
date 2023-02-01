@@ -48,36 +48,20 @@ Solution:
 ```
 #!/bin/python3
 
-import math
-import os
-import random
 import re
-import sys
-
-
-
-
-first_multiple_input = input().rstrip().split()
-
-n = int(first_multiple_input[0])
-
-m = int(first_multiple_input[1])
-
-matrix = []
-
-for _ in range(n):
-    matrix_item = input()
-    matrix.append(matrix_item)
-
-matrix = list(zip(*matrix))
-
-sample = str()
-
-for words in matrix:
-    for char in words:
-        sample += char
-       
-print(re.sub(r'(?<=\w)([^\w\d]+)(?=\w)', ' ', sample)) 
+n,m=map(int,input().split())
+l=list()
+for i in range(n):
+    l.append(input())
+l=list(zip(*l))
+s='' 
+for i in l:
+    s=s+''.join(i)
+s=''
+for i in l:
+    s=s+''.join(i)
+s=re.sub(r'^[^a-zA-Z0-9]+$',r' ',s)
+print(s)
 
 ```
 
@@ -132,12 +116,12 @@ False
 Solution:
 
 ```
-regex_integer_in_range = r"^[1-9][\d]{5}$"	
-regex_alternating_repetitive_digit_pair = r"(\d)(?=\d\1)"
+regex_integer_in_range = r"^[1-9][0-9]{1,5}$"	
+regex_alternating_repetitive_digit_pair = r"(?<=([0-9]))\d(?=\1)"
 
 
 import re
-P = input()
+P = input("A number from the given range")
 
 print (bool(re.match(regex_integer_in_range, P)) 
 and len(re.findall(regex_alternating_repetitive_digit_pair, P)) < 2)
